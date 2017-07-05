@@ -18,6 +18,8 @@
                  [aleph "0.4.1"]
                  [bidi "2.0.12"]
 
+                 [instaparse "1.4.7"]
+
                  ;[com.taoensso/timbre "4.10.0"]   ; clojure logging
 
                  [org.slf4j/slf4j-simple "1.7.25"] ; for the draining of sl4fj-reliant libraries used here
