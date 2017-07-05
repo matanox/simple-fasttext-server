@@ -9,7 +9,7 @@
   (println "server starting")
 
   (let
-    [process (attach ["executable/fastText/fasttext" "predict-prob" "executable/classifier.bin" "-" "5"])
+    [process (attach ["fasttext/fastText/fasttext" "predict-prob" "fasttext/classifier.bin" "-" "5"])
      classify
        (fn [ctx]
           (let [text (str (get-in ctx [:parameters :query :text]) "\n")]
