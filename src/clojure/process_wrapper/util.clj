@@ -31,27 +31,6 @@
     (throw (Exception. (str "unexpected type: " (class variable))))))
 
 
-(with-test
-  (defn interval-points
-    [start end number-of-intervals]
-    {:pre [(number? start) (number? end) (number? number-of-intervals)]}
-
-    " returns an ordered list of evenly-spaced interval points
-      between the start and end numbers, the start and end included.
-
-      compared to clojure.core's `range` this is inclusive, numerically stable, and always returns doubles"
-
-    (let
-      [step-size (/ (- end start) number-of-intervals )]
-      (map
-        double
-        (range start (+ step-size end) step-size))))
-
-  (do
-    (assert (= '(0 0.5 1) (interval-points 0 1 2)))
-    (assert (some #(= % 0.22) (interval-points 0 1 50)))))
-
-
 (defn abs-distance
   [a b]
   (let [distance (- a b)]

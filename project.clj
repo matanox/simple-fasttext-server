@@ -6,8 +6,8 @@
   :min-lein-version "2.0.0"
 
   :source-paths      ["src/clojure"]
-  :java-source-paths ["src/java"]
-  :javac-options     ["-target" "1.8" "-source" "1.8"]
+  :test-paths ["test" "src/clojure"] ; for picking up unit tests from regular source files not only the tests directory
+  :javac-options ["-target" "1.8" "-source" "1.8"]
 
   :dependencies [[org.clojure/clojure "1.8.0"]
 
@@ -46,9 +46,6 @@
             [mvxcvi/whidbey "1.3.1"]        ; more colorful repl (https://github.com/greglook/whidbey)
             [lein-codox "0.10.3"]
             [lein-auto "0.1.3"]]   ; provides the auto lein command for watching source changes
-
-  ; this doesn't work yet ― see https://github.com/weavejester/lein-auto/issues/6
-  ; :auto {:default {:paths (:source-paths :java-source-paths :test-paths :java-source-paths "my path")}} ; https://github.com/weavejester/lein-auto#usage
 
   :codox {:metadata {:doc/format :markdown}} ; treat docstrings as codox extended markdown (https://github.com/weavejester/codox/blob/master/example/src/clojure/codox/markdown.clj)
 
